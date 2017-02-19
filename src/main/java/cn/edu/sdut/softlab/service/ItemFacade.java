@@ -34,5 +34,10 @@ public class ItemFacade extends AbstractFacade<Item> {
   public ItemFacade() {
     super(Item.class);
   }
+  public Item findByName(String name){
+    Map<String,Object> parameters = new HashMap<>(0);
+    parameters.put("name", name);
+    return findSingleByNamedQuery("Stuff.findByName", parameters, Item.class).get();
+  }
 
 }
