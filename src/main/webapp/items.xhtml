@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="template/template.xhtml">
+        <ui:define name="content">
+            <h:messages />
+            <h1>Items</h1>
+            <h:dataTable value="#{Items}" var="i">
+                <h:column>
+                    <f:facet name="header">
+                        Id
+                    </f:facet>
+                    <h:outputText value="#{i.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Name
+                    </f:facet>
+                    <h:outputText value="#{i.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Date_bought
+                    </f:facet>
+                    <h:outputText value="#{i.dateBought}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Category
+                    </f:facet>
+                    <h:outputText value="#{i.category_id}" />
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">
+                        Num_total
+                    </f:facet>
+                    <h:outputText value="#{i.numTotal}" />
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">
+                        Status
+                    </f:facet>
+                    <h:outputText value="#{i.status}" />
+                </h:column>
+            </h:dataTable>
+           <h1>Add item</h1>
+            <h:form>
+                <table>
+                    <tr>
+                        <td>Id</td>
+                        <td><h:inputText value="#{itemManager.newItem.id}"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Name</td>
+                        <td><h:inputText value="#{itemManager.newItem.name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Date_bought</td>
+                        <td><h:inputText value="#{itemManager.newItem.dateBought.getTime}"/></td>
+                    </tr>         
+                     <tr>
+                        <td>Category</td>
+                        <td><h:inputText value="#{itemManager.newItem.Category}"/></td>
+                    </tr>       
+                     <tr>
+                        <td>Num_total</td>
+                        <td><h:inputText value="#{itemManager.newItem.numTotal}"/></td>
+                    </tr>       
+                     <tr>
+                        <td>Status</td>
+                        <td><h:inputText value="#{itemManager.newItem.status}"/></td>
+                    </tr>                          
+                    <tr>
+                        <td></td>
+                        <td><h:commandButton action="#{itemManager.addItem}" value="Add Item" /></td>
+                    </tr>
+                </table>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
