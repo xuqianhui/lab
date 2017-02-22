@@ -89,6 +89,19 @@
                     </tr>
                 </table>
             </h:form>
+            <h1>Query user</h1>
+            <h:form>
+                <table>
+                    <tr>
+                        <td>Username</td>
+                        <td><h:inputText value="#{credentials.username}"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><h:commandButton action="#{userManager.searchStuff}" value="Query User" /></td>
+                    </tr>
+                </table>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

@@ -21,10 +21,12 @@ package cn.edu.sdut.softlab.service;
 import cn.edu.sdut.softlab.model.Stuff;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.inject.Named;
+import javax.persistence.Query;
 
 @Stateless
 @Named("stuff")
@@ -47,4 +49,9 @@ public class StuffFacade extends AbstractFacade<Stuff> {
     return findSingleByNamedQuery("Stuff.findByUsernameAndPassword", parameters, Stuff.class).get();
   }
   
+  public List<Stuff> findByNameLike(String name){
+    Query query = em.createNamedQuery("Stuff.findByNameLike");
+    query.setParameter(1, "%" + name);
+    return query.getResultList();
+  }
 }

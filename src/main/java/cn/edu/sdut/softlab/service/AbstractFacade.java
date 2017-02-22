@@ -33,6 +33,8 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import cn.edu.sdut.softlab.model.Stuff;
+
 
 public abstract class AbstractFacade<T> {
 
@@ -209,5 +211,7 @@ public abstract class AbstractFacade<T> {
 
     T retrieve() throws NoResultException;
   }
+  
+  
 
 }

@@ -143,5 +143,18 @@ public class StuffManagerImpl implements StuffManager {
       return "/error.xhtml?faces-redirect=true";
     }
   }
+  
+  @Override
+  public String searchStuff() throws Exception {
+    String s = credentials.getUsername();
+    try {
+      utx.begin();
+      userService.findByNameLike(s);
+      logger.log(Level.INFO, "Added {0}", newStuff);
+      return "/users.xhtml?faces-redirect=true";
+    } finally {
+      utx.commit();
+    }
+  }
 
 }
