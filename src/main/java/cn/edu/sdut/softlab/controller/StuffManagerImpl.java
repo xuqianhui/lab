@@ -151,10 +151,16 @@ public class StuffManagerImpl implements StuffManager {
       utx.begin();
       userService.findByNameLike(s);
       logger.log(Level.INFO, "Added {0}", newStuff);
-      return "/users.xhtml?faces-redirect=true";
+      return "/query.xhtml?faces-redirect=true";
     } finally {
       utx.commit();
     }
+  }
+  
+  public List<Stuff> getSearchStuffs(){
+    String s = credentials.getUsername();
+   
+    return userService.findByNameLike(s);
   }
 
 }
