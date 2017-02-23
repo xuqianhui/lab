@@ -49,8 +49,9 @@ public class StuffFacade extends AbstractFacade<Stuff> {
     return findSingleByNamedQuery("Stuff.findByUsernameAndPassword", parameters, Stuff.class).get();
   }
   
+  @SuppressWarnings("unchecked")
   public List<Stuff> findByNameLike(String name){
-    Query query = em.createNamedQuery("Stuff.findByNameLike");
+    Query query = em.createQuery("Stuff.findByNameLike");
     query.setParameter(1, "%" + name);
     return query.getResultList();
   }

@@ -56,11 +56,15 @@ public interface StuffManager {
    */
   String updateStuff() throws Exception;
   
+  
+
   /**
    *查找用户.
    *
    * @return 返回用户列表页面
    * @throws Exception
    */
+  List<Stuff> getSearchStuffs();
+
   String searchStuff() throws Exception;
 }
